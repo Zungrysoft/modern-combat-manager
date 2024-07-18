@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.app {
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  background-color: #1e1e1e;
+  padding: 10px 0;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tabs button:hover {
+  background-color: #333333;
+}
+
+.tabs .active {
+  border-bottom: 2px solid #ffffff;
+}
+
+.content {
+  padding: 20px;
+}
+
+.circle-button {
+  background-color: #1e1e1e; /* Matching the tab background color */
+  border: 2px solid #ffffff; /* White border to stand out on dark background */
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  width: 50px; /* Adjust size as needed */
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 20px; /* Space around the button */
+}
+
+.circle-button:hover {
+  background-color: #333333; /* Darker background on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.circle-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* White shadow for focus */
+}
+
+.circle-button .plus {
+  display: block;
+  width: 18px; /* Adjust size as needed */
+  height: 2px; /* Adjust size as needed */
+  background-color: white;
+  position: relative;
+}
+
+.circle-button .plus::before {
+  content: '';
+  display: block;
+  width: 2px; /* Adjust size as needed */
+  height: 18px; /* Adjust size as needed */
+  background-color: white;
+  position: absolute;
+  top: -8px;
+  left: 8px;
+}
+
+.rounded-button {
+  background-color: #1e1e1e; /* Matching the dark mode background */
+  border: 2px solid #ffffff; /* White border to stand out */
+  border-radius: 12px; /* Rounded edges */
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 10px; /* Space around the button */
+  outline: none;
+}
+
+.rounded-button:hover {
+  background-color: #333333; /* Darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.rounded-button:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* White shadow for focus */
+}
+
+.rounded-button:active {
+  background-color: #555555; /* Even darker background on click */
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures children take full width */
+  justify-content: flex-start; /* Aligns children at the start of the container */
+  gap: 10px; /* Adjusts the space between child elements */
+  padding: 10px; /* Adds some padding inside the container */
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Ensures children take full width */
+  justify-content: flex-start; /* Aligns children at the start of the container */
+  gap: 10px; /* Adjusts the space between child elements */
+  padding: 10px; /* Adds some padding inside the container */
+}
+
+.text-input {
+  background-color: #1e1e1e; /* Matching the dark mode background */
+  border: 2px solid #ffffff; /* White border to stand out */
+  color: #ffffff; /* White text color */
+  padding: 10px; /* Padding inside the text box */
+  font-size: 16px; /* Font size */
+  border-radius: 8px; /* Rounded edges */
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%; /* Full width of the parent container */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.text-input:focus {
+  border-color: #1e90ff; /* Blue border on focus */
+  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.5); /* Blue shadow on focus */
+}
+
+.square-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color) 50%, var(--darker-color) 50%);
+  border: 2px solid var(--color);
+  border-radius: 8px; /* Slightly rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.square-button:hover {
+  transform: scale(1.05);
+}
+
+.square-button:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.square-button:active {
+  transform: scale(0.95);
+}
