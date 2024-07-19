@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/modern-combat-manager/static/css/main.3052fc81.css",
-    "main.js": "/modern-combat-manager/static/js/main.411c0636.js",
+    "main.js": "/modern-combat-manager/static/js/main.bf3cc2be.js",
     "static/js/453.dab3e95f.chunk.js": "/modern-combat-manager/static/js/453.dab3e95f.chunk.js",
     "index.html": "/modern-combat-manager/index.html",
     "main.3052fc81.css.map": "/modern-combat-manager/static/css/main.3052fc81.css.map",
-    "main.411c0636.js.map": "/modern-combat-manager/static/js/main.411c0636.js.map",
+    "main.bf3cc2be.js.map": "/modern-combat-manager/static/js/main.bf3cc2be.js.map",
     "453.dab3e95f.chunk.js.map": "/modern-combat-manager/static/js/453.dab3e95f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3052fc81.css",
-    "static/js/main.411c0636.js"
+    "static/js/main.bf3cc2be.js"
   ]
 }
