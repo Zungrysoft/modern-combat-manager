@@ -28,6 +28,7 @@ const InitiativeRow = ({ data, setInitiativeEntry, resetInitiativeEntry }) => {
     <TextDisplay
       text={data.character.name}
       width={500}
+      backgroundColor={data.character.isEnemy ? "#661010" : "#1a2566"}
     />
     <SquareButton
       text={getStatusText(data.status)}

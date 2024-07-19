@@ -28,14 +28,16 @@ const CombatPage = ({ initiative, characters, timer, settings, setInitiative, se
 
   // Key press detection
   const handleKeyPress = (event) => {
-    if (event.code === 'Enter') {
-      event.preventDefault();
-      resetInitiativeEntry(0);
-      setTimer({ timeMs: timerMax, active: false })
-    }
-    else if (event.code === 'Space') {
-      event.preventDefault();
-      setTimer({ ...timer, active: !timer.active })
+    if (initiative.length > 0) {
+      if (event.code === 'Enter') {
+        event.preventDefault();
+        resetInitiativeEntry(0);
+        setTimer({ timeMs: timerMax, active: false })
+      }
+      else if (event.code === 'Space') {
+        event.preventDefault();
+        setTimer({ ...timer, active: !timer.active })
+      }
     }
   };
 
@@ -97,9 +99,16 @@ const CombatPage = ({ initiative, characters, timer, settings, setInitiative, se
     ])
   }
 
+  function getBackgroundColor() {
+    if (initiative.length === 0) return "#2e2e2e";
+    if (timer.timeMs === 0) return "#8c1515";
+    if (timer.active) return "#1e1e1e";
+    return "#2e2e2e";
+  }
+
   return (
     <div>
-      <div className="upper-pane" style={{ backgroundColor: timer.timeMs === 0 ? "#8c1515" : "#1e1e1e"}}>
+      <div className="upper-pane" style={{ backgroundColor: getBackgroundColor()}}>
         <h3>Space: Start/Stop Timer  -  Enter: Next Player</h3>
         <RoundedButton text="Start Combat!" onClick={startCombat}/>
         <h1 style={{ align: "right" }}>{clockDisplay(timer.timeMs)}</h1>
