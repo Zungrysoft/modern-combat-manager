@@ -16,7 +16,7 @@ const pages = {
 function App() {
   const [activeTab, setActiveTab] = useState('setup');
   const [characters, setCharacters] = useState(loadCharacters());
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState(loadSettings());
   const [initiative, setInitiative] = useState([]);
   const [timer, setTimer] = useState({ timeMs: 0, active: false });
 
@@ -29,17 +29,28 @@ function App() {
     setCharacters(val);
   }
 
+  function loadSettings() {
+    return JSON.parse(localStorage.getItem("settings")) || {};
+  }
+
+  function saveSettings(val) {
+    localStorage.setItem("settings", JSON.stringify(val));
+    setSettings(val);
+  }
+
   const renderPage = () => {
     switch (activeTab) {
       case 'settings':
         return <SettingsPage
           settings={settings}
+          setSettings={saveSettings}
         />;
       case 'combat':
         return <CombatPage
           initiative={initiative}
           characters={characters}
           timer={timer}
+          settings={settings}
           setInitiative={setInitiative}
           setTimer={setTimer}
         />;

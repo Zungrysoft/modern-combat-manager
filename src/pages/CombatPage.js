@@ -3,10 +3,11 @@ import InitiativeRow from "../components/InitiativeRow";
 import RoundedButton from "../components/RoundedButton";
 import { d } from "../helpers/random";
 
-const TIMER_MAX = 15_000
 const TIMER_INTERVAL = 30
 
-const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) => {
+const CombatPage = ({ initiative, characters, timer, settings, setInitiative, setTimer }) => {
+  const timerMax = (parseFloat(settings.timerLengthSeconds) || 10) * 1000;
+
   // Clock timer
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,7 +20,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
     }, TIMER_INTERVAL);
   
     return () => clearInterval(interval);
-  }, [timer, setTimer])
+  }, [timer, settings, setTimer])
 
   function clockDisplay(timer) {
     return (timer / 1000).toFixed(2);
@@ -30,7 +31,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
     if (event.code === 'Enter') {
       event.preventDefault();
       resetInitiativeEntry(0);
-      setTimer({ timeMs: TIMER_MAX, active: false })
+      setTimer({ timeMs: timerMax, active: false })
     }
     else if (event.code === 'Space') {
       event.preventDefault();
@@ -44,7 +45,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [initiative, characters, setInitiative, timer, setTimer]);
+  }, [initiative, characters, setInitiative, timer, settings, setTimer]);
 
   function sortInitiative(a, b) {
     const aInitScore = parseInt(a.character.initiativeScore) || 0;
@@ -73,7 +74,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
     })).sort(sortInitiative);
 
     setInitiative(newInitiative);
-    setTimer({ timeMs: TIMER_MAX, active: false })
+    setTimer({ timeMs: timerMax, active: false })
   }
 
   function setInitiativeEntry(index, val) {
