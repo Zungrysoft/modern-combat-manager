@@ -99,7 +99,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
   return (
     <div>
       <div className="upper-pane">
-        <h3>Space: Pause Timer  -  Enter: Next Player</h3>
+        <h3>Space: Start/Stop Timer  -  Enter: Next Player</h3>
         <RoundedButton text="Start Combat!" onClick={startCombat}/>
         <h1 style={{ align: "right" }}>{clockDisplay(timer.timeMs)}</h1>
       </div>

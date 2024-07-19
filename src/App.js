@@ -12,12 +12,22 @@ const pages = {
 }
 
 
+
 function App() {
   const [activeTab, setActiveTab] = useState('setup');
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(loadCharacters());
   const [settings, setSettings] = useState({});
   const [initiative, setInitiative] = useState([]);
   const [timer, setTimer] = useState({ timeMs: 0, active: false });
+
+  function loadCharacters() {
+    return JSON.parse(localStorage.getItem("characters")) || [];
+  }
+
+  function saveCharacters(val) {
+    localStorage.setItem("characters", JSON.stringify(val));
+    setCharacters(val);
+  }
 
   const renderPage = () => {
     switch (activeTab) {
@@ -36,7 +46,7 @@ function App() {
       default:
         return <SetupPage
           characters={characters}
-          setCharacters={setCharacters}
+          setCharacters={saveCharacters}
         />;
     }
   };

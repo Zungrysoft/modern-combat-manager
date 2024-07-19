@@ -164,6 +164,7 @@ body {
   transition: border-color 0.3s, box-shadow 0.3s;
   width: 100%; /* Full width of the parent container */
   box-sizing: border-box; /* Ensure padding is included in the width */
+  margin: 0px;
 }
 
 .text-input:focus {
@@ -211,6 +212,7 @@ body {
   padding: 0 20px; /* Padding for content inside the pane */
   box-sizing: border-box; /* Include padding in height and width */
   border: 2px solid #ffffff; /* Optional: bottom border to separate from content below */
+  margin-bottom: 15px;
 }
 
 .button-image {
