@@ -3,7 +3,7 @@ import InitiativeRow from "../components/InitiativeRow";
 import RoundedButton from "../components/RoundedButton";
 import { d } from "../helpers/random";
 
-const TIMER_MAX = 10_000
+const TIMER_MAX = 15_000
 const TIMER_INTERVAL = 30
 
 const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) => {
@@ -98,7 +98,7 @@ const CombatPage = ({ initiative, characters, timer, setInitiative, setTimer }) 
 
   return (
     <div>
-      <div className="upper-pane">
+      <div className="upper-pane" style={{ backgroundColor: timer.timeMs === 0 ? "#8c1515" : "#1e1e1e"}}>
         <h3>Space: Start/Stop Timer  -  Enter: Next Player</h3>
         <RoundedButton text="Start Combat!" onClick={startCombat}/>
         <h1 style={{ align: "right" }}>{clockDisplay(timer.timeMs)}</h1>
