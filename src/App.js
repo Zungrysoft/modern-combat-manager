@@ -17,6 +17,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [settings, setSettings] = useState({});
   const [initiative, setInitiative] = useState([]);
+  const [timer, setTimer] = useState({ timeMs: 0, active: false });
 
   const renderPage = () => {
     switch (activeTab) {
@@ -27,6 +28,10 @@ function App() {
       case 'combat':
         return <CombatPage
           initiative={initiative}
+          characters={characters}
+          timer={timer}
+          setInitiative={setInitiative}
+          setTimer={setTimer}
         />;
       default:
         return <SetupPage

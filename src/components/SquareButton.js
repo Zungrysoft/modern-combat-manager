@@ -1,10 +1,10 @@
 import React from 'react';
 
-function SquareButton({ text, color, onClick }) {
+function SquareButton({ text, color, onClick, width }) {
   const darkerShade = darkenColor(color, 0.2); // Darken the color by 20%
 
   return (
-    <button className="square-button" style={{ '--color': color, '--darker-color': darkerShade }} onClick={onClick}>
+    <button className="square-button" style={{ '--color': color, '--darker-color': darkerShade, width: width }} onClick={onClick}>
       {text}
     </button>
   );

@@ -1,5 +1,7 @@
-const SettingsPage = () => {
-  return <div/>;
+const SettingsPage = ({ settings, setSettings }) => {
+  return <div>
+
+  </div>
 };
 
 export default SettingsPage;

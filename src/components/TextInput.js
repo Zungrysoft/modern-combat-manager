@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TextInput({ value, placeholder, onChange }) {
+function TextInput({ value, placeholder, onChange, width }) {
   const handleChange = (event) => {
     onChange(event.target.value);
   };
@@ -12,6 +12,7 @@ function TextInput({ value, placeholder, onChange }) {
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
+      style={{ width: width }}
     />
   );
 }
